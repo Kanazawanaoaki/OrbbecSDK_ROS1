@@ -1,0 +1,18 @@
+<launch>
+  <arg name="color_fps" default="30" />
+  <arg name="depth_fps" default="30" />
+  <arg name="enable_colored_point_cloud" default="true" />
+  <arg name="depth_registration" default="true" />
+  <arg name="camera_name" default="femto_mega" />
+
+  <!-- Set image compressedDepth png_leve to 5 -->
+  <rosparam file="$(find orbbec_camera)/config/pr1040_femto_mega_png_level.yaml" command="load"/>
+
+  <include file="$(find orbbec_camera)/launch/femto_mega.launch">
+    <arg name="color_fps" value="$(arg color_fps)" />
+    <arg name="depth_fps" value="$(arg depth_fps)" />
+    <arg name="enable_colored_point_cloud" value="$(arg enable_colored_point_cloud)" />
+    <arg name="depth_registration" value="$(arg depth_registration)" />
+    <arg name="camera_name" value="$(arg camera_name)" />
+  </include>
+</launch>
