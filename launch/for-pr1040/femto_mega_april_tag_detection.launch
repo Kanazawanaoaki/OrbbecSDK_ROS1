@@ -1,12 +1,12 @@
 <launch>
   <!-- You need to run this launch file in the PR2 robot for higher frequency of the image,
   otherwise the internal message filter will not work -->
-  <node pkg="apriltag_ros" type="apriltag_ros_continuous_node" name="apriltag_pose_detector">
+  <node pkg="apriltag_ros" type="apriltag_ros_continuous_node" name="femto_mega_apriltag_pose_detector">
     <remap from="image_rect" to="/femto_mega/color/image_raw" />
     <remap from="camera_info" to="/femto_mega/color/camera_info" />
     <rosparam>
       <!-- NOTE: the size is the inner square's edge length of the tag, not the outer edge length!!! -->
-      standalone_tags: [{id: 0, size: 0.0277, name: apriltag},]
+      standalone_tags: [{id: 0, size: 0.0277, name: apriltag_mega},]
       tag_family: "tagStandard41h12"
       publish_tf: true
     </rosparam>
