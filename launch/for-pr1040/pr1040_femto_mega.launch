@@ -8,6 +8,9 @@
   <!-- Set image compressedDepth png_leve to 5 -->
   <rosparam file="$(find orbbec_camera)/config/pr1040_femto_mega_png_level.yaml" command="load"/>
 
+  <node pkg="orbbec_camera" type="femto_mega_tf_publisher.py" name="femto_mega_tf_publisher"
+        output="screen" />
+
   <include file="$(find orbbec_camera)/launch/femto_mega.launch">
     <arg name="color_fps" value="$(arg color_fps)" />
     <arg name="depth_fps" value="$(arg depth_fps)" />
